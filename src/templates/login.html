@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block head %} register new user {% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block body %}
+
+<div class="login">	
+	<form action="/login" method="POST">
+	  <h3>Sign to your account:</h3>
+	  <hr>
+
+	  <input type="text" placeholder="Enter Login Name" name="loginname" required>
+	  <input type="password" placeholder="Enter Password" name="psw" required>
+
+	  <button type="submit" class="btn btn-submit">Login</button>
+	</form>
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for msg in messages %}
+				<p>{{msg}}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+</div>
+
+{% endblock %}

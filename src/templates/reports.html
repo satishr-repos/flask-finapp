@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+
+{% block head %} register new user {% endblock %}
+
+{% block body %}
+
+<div class=grid-container>
+
+	<div class="grid-item grid-item2">
+		<form action="#", onsubmit="executeTask(event);">
+  			<h3> View Reports </h3>
+		  	<hr>
+	
+			<select id="reports-tasks" name="tasks" onchange="selectTask()">
+			</select>
+	
+			<div id="reports-option" style="display:inline-block">	
+			</div>
+
+			<br>
+			<button type="submit" class="btn btn-inline-submit">Select</button>
+			<hr>
+		</form>
+		<p id="reports-msg" style="color:tomato"></p>
+	</div>
+
+	<div class="grid-item grid-item2" style="padding-bottom:2px">
+		<!-- <button id="reports-btn-pdf" style="float:right" hidden><i class="fas fa-file-pdf"></i></button>
+		<button id="reports-btn-csv" style="float:right" hidden><i class="fas fa-file-csv"></i></button>
+		<button id="reports-btn-xls" class="btn-icon" style="float:right;margin-right:20px" hidden></button>
+		<button id="reports-btn-xls" class="btn-icon" style="float:right" hidden><i class="fas fa-file-excel fa-2x"></i></button>
+		<a id="reports-btn-xls" class="btn-icon" style="float:right;" hidden download></a> -->
+		<a id="reports-btn-xls" style="float:right;" hidden download><button><i class="fas fa-file-excel fa-1x" style="color:green"></i></button></a>
+	</div>
+
+	<div class="grid-item grid-item2" style="padding-top:0">
+		<div class="item2-table" style="overflow-x:auto;overflow-y:auto;max-height:500px">
+		<table id="reports-table">
+			<thead id="reports-table-head">
+			</thead>
+
+			<tbody id=reports-table-body>
+			</tbody>
+		</table>
+		</div>
+	</div>
+
+</div>
+
+<script src="{{url_for('static', filename='js/reports.js')}}" defer></script>
+
+{% endblock %}

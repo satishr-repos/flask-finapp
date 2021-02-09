@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+
+{% block head %} Admin page {% endblock %}
+
+{% block body %}
+
+<div class=grid-container>
+
+	<!-- 
+	<div class="grid-item grid-item2">
+	<h3> Admin utilities </h3><hr>
+	</div>
+
+	<div class="grid-item grid-item2">
+	<a href="{{url_for('reports')}}" class="btn btn-link">Customer Reports&nbsp;&nbsp;<i class="fas fa-file-alt fa-2x"></i></a>
+	<a href="{{url_for('user_edit')}}" class="btn btn-link">User Edit&nbsp;&nbsp;<i class="fas fa-user-edit fa-2x"></i> </a>
+	</div>
+	-->
+
+	<!-- The sidebar -->
+	<div class="grid-item grid-item1 sidebar">
+	  <a href="{{url_for('reports')}}"><i class="fas fa-file-alt"></i> Customer Reports</a>
+	  <a href="{{url_for('user_edit')}}"><i class="fas fa-user-edit"></i> User Admin</a>
+	</div>
+</div>
+
+{% endblock %}

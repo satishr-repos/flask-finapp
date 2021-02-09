@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/fa/all.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+	<title>{% block head %}{% endblock %}</title>
+	<style>{% block style %}{% endblock %}</style>
+</head>
+
+<body>
+	{% block navbar %}
+	
+	<div class="topnav">
+		<a class="active" href="{{url_for('home')}}"><i class="fas fa-home"></i>Home</a>
+	  	<!-- <a href="#">Reports</a>
+	  	<a href="#news">News</a>
+	  	<a href="#contact">Contact</a>
+	  	<a href="#about">About</a> -->
+		<div class="topnav-right">
+		  	<a>Hello {{name}}</a>
+		  	<a href="{{url_for('logout')}}"><i class="fas fa-user-circle fa-1x"></i></a>
+		</div>
+	</div>
+
+	{% endblock %}
+
+
+	{% block sidebar %}
+
+	<!-- The sidebar -->
+	<div class="grid-item grid-item1 sidebar">
+	  <header>Navigation</header>
+	  <a class="{% if request.endpoint == 'reports' %}active{% endif %}" href="{{url_for('reports')}}"><i class="fas fa-file-alt"></i>Reports</a>
+	  <a class="{% if request.endpoint == 'user_edit' %}active{% endif %}" href="{{url_for('user_edit')}}"><i class="fas fa-user-edit"></i>User Admin</a>
+	</div>
+
+	{% endblock %}
+
+	{% block body %}
+
+	{% endblock %}
+	
+</body>
+</html>
