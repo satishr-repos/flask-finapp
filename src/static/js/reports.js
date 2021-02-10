@@ -109,7 +109,6 @@ function selectTask() {
 
 		for (let i=0; i < taskList.names.length; i++)
 		{
-			console.log(taskList.names[i]);
 			let ele = document.createElement('option');
 			ele.value = taskList.names[i];
 			ele.textContent = ele.value;
@@ -215,11 +214,6 @@ function showTable(cols, rows, xls) {
 	let colEle = document.getElementById('reports-table-head');
 	let rowEle = document.getElementById('reports-table-body');
 
-	xlsBtn = document.getElementById('reports-btn-xls')
-    xlsBtn.classList.remove("invisible");
-	xlsBtn.setAttribute("href", xls);	
-
-
 	let innerHTML = "<tr>";
 	for(let i=0; i < cols.length; i++)	
 	{
@@ -244,4 +238,8 @@ function showTable(cols, rows, xls) {
 	}
 
 	rowEle.innerHTML = innerHTML;
+	
+	xlsBtn = document.getElementById('reports-btn-xls')
+    xlsBtn.classList.remove("invisible");
+	xlsBtn.setAttribute("href", xls);	
 }

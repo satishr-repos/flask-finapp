@@ -44,7 +44,11 @@ def get_fifo_cap_gains(customerName, fyYear, fileName):
 		cur.execute(query, params)
 		cols = [col[0] for col in cur.description]
 		rows = cur.fetchall()
-		df = pd.DataFrame.from_records(rows, columns=cols, coerce_float=True)
+		if rows:
+			df = pd.DataFrame.from_records(rows, columns=cols, coerce_float=True)
+
+	if not df:
+		return { "cols": None, "rows" : None }
 
 	df_fy = df[df["S_Trdt"].isin(pd.date_range(start, end))].copy()
 
