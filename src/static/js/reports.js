@@ -44,7 +44,7 @@ function getTasks() {
 	// Displaying results to console 
 	.then(function (text) {
     	//console.log('GET response text:');
-        //console.log(data); 
+        //console.log(text); 
 
 		createTasks(text);
 		selectTask();
@@ -90,8 +90,8 @@ function selectTask() {
 	} else {
 
 		option1Div.innerHTML = `
-								<input list="names"  id="reports-names" class="form-select" placeholder="Customer name">
-								<datalist>
+								<input list="custnames"  id="reports-names" class="form-control" placeholder="Customer name">
+								<datalist id="custnames">
 								</datalist>
 								`
 
@@ -104,12 +104,12 @@ function selectTask() {
 									</select>
 								</div>
 								`
-		let namesEle = document.getElementById('reports-names');
+		let namesEle = document.getElementById('custnames');
 		let fyEle = document.getElementById('reports-fy');
-	
+
 		for (let i=0; i < taskList.names.length; i++)
 		{
-			//console.log(data.names[i]);
+			console.log(taskList.names[i]);
 			let ele = document.createElement('option');
 			ele.value = taskList.names[i];
 			ele.textContent = ele.value;

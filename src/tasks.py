@@ -3,7 +3,7 @@ import xlsxwriter
 import pandas as pd
 from datetime import datetime 
 from decimal import Decimal
-from settings import db_server, db_pms, db_user, db_pswd
+from settings import db_server, db_pms, db_user, db_pswd, db_2021
 
 xlsFormat = {
 				'caption' : { 'bold' : True },
@@ -212,10 +212,21 @@ def saveledgeras_xls(df, fileName):
 
 	writer.save()
 
+def get_customer_names():
+
+	names = list()
+	with sqlConn(db_server, db_2021, db_user, db_pswd) as cur:
+		cur.execute("SELECT DESCR FROM dbo.DLMAST;")
+		rows = cur.fetchall()
+		names = [str(row[0]).strip().title() for row in rows]
+
+	return(names)
+
 def main():
 	customer = "SATISH RANGA"
 	fy = "2015"
-	get_fifo_cap_gains(customer, fy, "downloads/test.xlsx")
+	#get_fifo_cap_gains(customer, fy, "downloads/test.xlsx")
+	get_customer_names()
 
 if __name__ == '__main__':
 	main()

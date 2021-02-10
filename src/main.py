@@ -30,12 +30,12 @@ def validate_user(user, name, passwd):
 	return True
 
 def get_options(user):
-	tasks = ['fifocapgains', 'billledgercomp']
-	names = []
+	task_list = ['fifocapgains', 'billledgercomp']
+	names = tasks.get_customer_names()
 	fy = [*range(2012,2021)]
 
 	data = {
-			'tasks' : tasks,
+			'tasks' : task_list,
 			'names' : names,
 			'fy' : fy }
 
