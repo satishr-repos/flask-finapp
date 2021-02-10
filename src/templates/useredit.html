@@ -4,39 +4,61 @@
 
 {% block body %}
 
-<div class=grid-container>
-	<div class="grid-item grid-item2">
-	<form action="/useredit" method="POST" onSubmit="checkPassword(event)" >
-		<div class="user-registration">
-  			<h3>Add new user</h3>
-		  	<hr>
-	
-			<input type="text" placeholder="First Name" name="first-name" required>
-			<input type="text" placeholder="Last Name" name="last-name"><br>
-			<input type="text" placeholder="Enter Login Name" name="login-name" required>
-			<input type="email" placeholder="Enter Email" name="user-email"><br>
-			<input type="password" placeholder="Enter Password" name="pswd" required>
-			<input type="password" placeholder="Repeat Password" name="pswd-repeat" required><br>
-			<input type="checkbox" name="is-admin" id="is-admin">
-			<label for="is-admin">Admin</label><br><br>
+<div class=container>
+	<form action="/useredit" class="row gx-3 gy-2" method="POST" onSubmit="checkPassword(event)" >
+		<div class="col-md-12 mt-5">
+			<h3>Add new user</h3>
+			<hr>
+		</div>
 		
-			<button type="submit" class="btn btn-register">Register</button>
+		<div class="col-md-4">
+			<input type="text" class="form-control" name="login-name" placeholder="Login Name" required>
+		</div>
+
+		<div class="col-md-4">
+			<input type="text" class="form-control" name="first-name" placeholder="First Name" required>
+		</div>
+
+		<div class="col-md-4">
+			<input type="text" class="form-control" name="last-name" placeholder="Last Name" >
+		</div>
+
+		<div class="col-md-4">
+			<input type="email" class="form-control" name="user-email" placeholder="Email" >
+		</div> 
+
+		<div class="col-md-4">
+			<input type="password" class="form-control" placeholder="Password" name="pswd" required>
+		</div>
+
+		<div class="col-md-4">
+			<input type="password" class="form-control" placeholder="Repeat Password" name="pswd-repeat" required>
+		</div>
+
+		<div class="col-md-12 ms-2 form-check">
+			<input class="form-check-input" type="checkbox" name="is-admin" id="is-admin">
+			<label class="form-check-label" for="is-admin">Admin</label>
+		</div>
+		
+		<div class="col-md-12">	
+			<button type="submit" class="btn btn-primary">Register</button>
 			<hr>
 		</div>
 	</form>
-	</div>
 	
-	<div class="grid-item grid-item2" style="overflow-x:auto;">
-	<table>
+	<table class="table">
+		<thead>
 		<tr>
-			<th>Login Name</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Email</th>
-			<th>Created on</th>
-			<th>Admin</th>
-			<th>Action</th>
+			<th scope="col">Login Name</th>
+			<th scope="col">First Name</th>
+			<th scope="col">Last Name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Created on</th>
+			<th scope="col">Admin</th>
+			<th scope="col">Action</th>
 		</tr>
+		</thead>
+		<tbody>
 		{% for user in users %}
 			<tr>
 				<td>{{user.name}}</td>
@@ -45,11 +67,11 @@
 				<td>{{user.email}}</td>
 				<td>{{user.date_created}}</td>
 				<td>{{user.is_admin}}</td>
-				<td><a href="{{url_for('delete', id=user.id)}}" class="btn btn-danger">Delete</a></td>
+				<td><a href="{{url_for('delete', id=user.id)}}" class="btn btn-danger btn-sm">Delete</a></td>
 			</tr>
 		{% endfor %}
+		</tbody>
 	</table>
-	</div>
 </div>
 
 <script src="{{url_for('static', filename='js/useredit.js')}}" defer></script>

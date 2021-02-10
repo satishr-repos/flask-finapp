@@ -69,28 +69,41 @@ function createTasks(text) {
 
 function selectTask() {
 
-	let optionsDiv = document.getElementById('reports-option');	
+	let option1Div = document.getElementById('reports-option1');	
+	let option2Div = document.getElementById('reports-option2');	
 	selTask = document.getElementById('reports-tasks').value;
 
 	msgEle.innerHTML = '';
 
 	if (selTask == 'billledgercomp') {
 
-		optionsDiv.innerHTML = `
-								<label for="reports-date">Ledger Date:</label>
-								<input type="date" id="reports-date" name="ledger-date">
+		option1Div.innerHTML = ` 
+								<div class="input-group">
+									<label class="input-group-text" for="reports-date">Ledger Date:</label>
+									<input type="date" id="reports-date" class="form-control" name="ledger-date">
+								</div>
 								`
+		option1Div.ClassName = "col-md-5";
+
+		option2Div.innerHTML = ""
+
 	} else {
 
-		optionsDiv.innerHTML = `
-								<input list="names"  id="reports-names" placeholder="Enter customer name">
+		option1Div.innerHTML = `
+								<input list="names"  id="reports-names" class="form-select" placeholder="Customer name">
 								<datalist>
 								</datalist>
-
-								<select id="reports-fy" name="fy">
-								</select>
 								`
 
+		option1Div.ClassName = "col-md-4";
+
+		option2Div.innerHTML = `
+								<div class="input-group">
+									<label class="input-group-text" for="reports-fy">FY:</label>
+									<select id="reports-fy" class="form-select" name="fy">
+									</select>
+								</div>
+								`
 		let namesEle = document.getElementById('reports-names');
 		let fyEle = document.getElementById('reports-fy');
 	
@@ -203,7 +216,7 @@ function showTable(cols, rows, xls) {
 	let rowEle = document.getElementById('reports-table-body');
 
 	xlsBtn = document.getElementById('reports-btn-xls')
-    xlsBtn.style.display = "block";
+    xlsBtn.classList.remove("invisible");
 	xlsBtn.setAttribute("href", xls);	
 
 
