@@ -6,14 +6,14 @@ from decimal import Decimal
 from settings import db_server, db_pms, db_user, db_pswd, db_2021
 
 xlsFormat = {
-				'caption' : { 'bold' : True },
-				'header'  : { 'font_size' : 10, 'align' : 'center', 'bg_color' : '#4caf50', 'border' : 2, 'font_color' : 'white' },
-				'font'    : { 'font_name' : 'Times New Roman', 'font_size' : 12 },
-				'str'	  : { 'align' : 'left' },
-				'datetime': { 'num_format' : 'dd-mmm-yyy'},
-				'decimal' : { 'num_format' : '[Black]#,##0.0000;[Red]-#,##0.0000'},
-				'int'     : { 'num_format' : '[Black]General;[Red]-General;General' },
-				'float'   : { 'num_format' : '[Black]#,##0.0000;[Red]-#,##0.0000' } }
+		'caption' : { 'bold' : True },
+		'header'  : { 'font_size' : 10, 'align' : 'center', 'bg_color' : '#4caf50', 'border' : 2, 'font_color' : 'white' },
+		'font'    : { 'font_name' : 'Times New Roman', 'font_size' : 12 },
+		'str'	  : { 'align' : 'left' },
+		'datetime': { 'num_format' : 'dd-mmm-yyy'},
+		'decimal' : { 'num_format' : '[Black]#,##0.0000;[Red]-#,##0.0000'},
+		'int'     : { 'num_format' : '[Black]General;[Red]-General;General' },
+		'float'   : { 'num_format' : '[Black]#,##0.0000;[Red]-#,##0.0000' } }
 
 class sqlConn(object):
 	def __init__(self, server, database, user, pwd):
@@ -227,8 +227,8 @@ def get_customer_names():
 	return(names)
 
 def main():
-	customer = "SATISH RANGA"
-	fy = "2015"
+	customer = ""
+	fy = ""
 	#get_fifo_cap_gains(customer, fy, "downloads/test.xlsx")
 	get_customer_names()
 

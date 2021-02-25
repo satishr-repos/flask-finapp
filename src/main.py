@@ -32,7 +32,8 @@ def validate_user(user, name, passwd):
 def get_options(user):
 	task_list = ['fifocapgains', 'billledgercomp']
 	names = tasks.get_customer_names()
-	fy = [*range(2012,2021)]
+	year = datetime.now().year if (datetime.now().month > 3) else (datetime.now().year - 1)
+	fy = [*range(year,2011, -1)]
 
 	data = {
 			'tasks' : task_list,
